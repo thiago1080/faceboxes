@@ -7,21 +7,22 @@ import sys
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 mapi  = mAP(sys.argv[1])
+
 #sys.argv[1] ---> 1 = wider 2 = monitora.
 
 gt = mapi.gt_to_dict()
-for proto_threshold in range(10, 1, -1):
+for proto_threshold in range(9, 1, -1):
 	threshold = proto_threshold / 10 
 	sthreshold = str(threshold)
 	print('Threshold = {}'.format(sthreshold))
-	emb_dict = mapi.gf_embed_to_dict(threshold)
-	pickle.dump(emb_dict, open('data/mssd/embeds-'+ sthreshold + '.pkl','wb'))
+	emb_dict = mapi.gf_embed_to_dict(threshold, algoritmo='genericdetector')
+	pickle.dump(emb_dict, open('data/mssd/gembeds-'+ sthreshold + '.pkl','wb'))
 
 precisions, recalls  = [], []
-for proto_threshold in range(10, 1, -1):
+for proto_threshold in range(9, 1, -1):
 	threshold = proto_threshold / 10 
 	sthreshold = str(threshold)
-	pklpath = 'data/mssd/embeds-'+ sthreshold + '.pkl'
+	pklpath = 'data/mssd/gembeds-'+ sthreshold + '.pkl'
 	matchpath = 'data/mssd/matches-'+ sthreshold + '.pkl'
 	print('Reading {}'.format(pklpath))
 	emb_dict = pickle.load(open(pklpath,'rb'))
