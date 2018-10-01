@@ -1,0 +1,12 @@
+{
+  "wider": {
+      "model":"/home/thiago/gryfo/DATA/faceboxes/model.pb",
+      "groundtruth_file":"/media/nfs_datasets/WIDER/wider_face_split/wider_face_train_val_bbx_gt.txt",
+      "image_path":"/media/nfs_datasets/WIDER/WIDER_train_val/images"
+  },
+  "monitora":{
+      "model":"/home/thiago/gryfo/DATA/faceboxes/model.pb",
+      "groundtruth_file":"/media/nfs_datasets/monitora/monitora_anotado/gtmonitora.txt",
+      "image_path":"/media/nfs_datasets/monitora/monitora_anotado"
+  }
+}
